@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomAppBar
 import androidx.compose.material.Button
 import androidx.compose.material.Divider
@@ -36,20 +37,20 @@ import java.util.Date
 fun HomeScreen(navController: NavController){
    Scaffold(topBar = {
        TopAppBar(title = { Text(text = "Iventory Master")},
-           navigationIcon = { Icon(painter = painterResource(id = R.drawable.dots), contentDescription ="three dots" , modifier = Modifier.size(16.dp))},
-           modifier = Modifier.clickable {  }, contentColor = Color.White, elevation = 5.dp)
+           navigationIcon = { Icon(painter = painterResource(id = R.drawable.menuicon), contentDescription ="three dots" , modifier = Modifier.size(22.dp))},
+           modifier = Modifier.clickable {  }.padding(10.dp), contentColor = Color.White, elevation = 5.dp)
      },
        bottomBar = {
            BottomAppBar() {
-               Row(horizontalArrangement = Arrangement.SpaceBetween  ) {
+               Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth().padding(20.dp, 10.dp)  ) {
                    Icon(painter = painterResource(id = R.drawable.homepage), contentDescription = "HOme"
-                       ,modifier = Modifier.clickable {  }.size(16.dp))
+                       ,modifier = Modifier.clickable { navController.navigate(AllScreens.HomeScreen.name) }.size(24.dp))
 
                    Icon(painter = painterResource(id = R.drawable.user), contentDescription = "Farmers"
-                       ,modifier = Modifier.clickable {  }.size(16.dp))
+                       ,modifier = Modifier.clickable { navController.navigate(AllScreens.FarmersListScreen.name)  }.size(24.dp))
 
                    Icon(painter = painterResource(id = R.drawable.setting), contentDescription = "Farmers"
-                       ,modifier = Modifier.clickable {  }.size(16.dp))
+                       ,modifier = Modifier.clickable {  }.size(24.dp))
 
                }
            }
@@ -67,19 +68,21 @@ fun HomeScreen(navController: NavController){
 @Composable
 fun homeContent(modifier: Modifier,navController: NavController){
     Column {
-        Surface(shape = RectangleShape, color= Color(83, 120, 102, 255)) {
-            Column {
+        Surface(shape = RoundedCornerShape(15.dp), color= Color(142, 190, 167, 255),
+            modifier = Modifier.padding(10.dp), elevation = 10.dp) {
+            Column(modifier = Modifier.padding(20.dp)) {
                 Text(text = SimpleDateFormat("dd-MM-yyyy" ).format(Date()))
 
-                Divider(thickness = 1.dp, modifier = Modifier.fillMaxWidth())
+                Divider(thickness = 1.dp, modifier = Modifier.fillMaxWidth().padding(10.dp))
 
-                Text(text = "Sales")
+                Text(text = "Sales : ")
 
             }
 
         }
 
-        Button(onClick = { navController.navigate(AllScreens.AddFarmerScreen.name) }) {
+        Button(onClick = { navController.navigate(AllScreens.AddFarmerScreen.name) },
+            modifier = Modifier.padding(10.dp)) {
             Text(text = "Add farmer")
         }
     }

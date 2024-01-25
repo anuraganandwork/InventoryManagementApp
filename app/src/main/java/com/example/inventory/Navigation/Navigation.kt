@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.inventory.AllScreens.AllScreens
 import com.example.inventory.Screens.AddFarmerScreen
+import com.example.inventory.Screens.FarmersListScreen
 import com.example.inventory.Screens.HomeScreen
 import com.example.inventory.Screens.LoginScreen
 import com.example.inventory.Screens.SignUpScreen
@@ -38,6 +39,10 @@ val navController = rememberNavController()
 
         composable(AllScreens.AddFarmerScreen.name){
             AddFarmerScreen(viewmodel = vm)
+        }
+
+        composable(AllScreens.FarmersListScreen.name){
+            FarmersListScreen(viewmodel = vm)
         }
 
     };

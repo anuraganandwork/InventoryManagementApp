@@ -77,7 +77,8 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             keyboardActions = KeyboardActions(onNext =
             {focusManager.moveFocus(FocusDirection.Down)
             keyboardController?.hide()})
-            , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
+            , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp),
+            label = { Text(text = "Enter name")}
         )
         TextField(value = mobileNumber.value, onValueChange = {mobileNumber.value = it},
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
@@ -85,7 +86,7 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             {focusManager.moveFocus(FocusDirection.Down)
                 keyboardController?.hide()})
             , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
-
+, label = { Text(text = "Enter mobileNumber")}
         )
 
         TextField(value = aadharNumber.value, onValueChange = {aadharNumber.value = it},
@@ -94,7 +95,7 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             {focusManager.moveFocus(FocusDirection.Down)
                 keyboardController?.hide()})
             , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
-
+            , label = { Text(text = "Enter aadharNumber")}
         )
 
         TextField(value = address.value, onValueChange = {address.value = it},
@@ -103,7 +104,7 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             {focusManager.moveFocus(FocusDirection.Down)
                 keyboardController?.hide()})
             , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
-
+            , label = { Text(text = "Enter address ")}
         )
 
         TextField(value = product.value, onValueChange = {product.value = it},
@@ -112,7 +113,7 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             {focusManager.moveFocus(FocusDirection.Down)
                 keyboardController?.hide()})
             , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
-
+            , label = { Text(text = "Enter product ")}
         )
 
         TextField(value = quantity.value, onValueChange = {quantity.value = it},
@@ -121,7 +122,7 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             {focusManager.moveFocus(FocusDirection.Down)
                 keyboardController?.hide()})
             , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
-
+            , label = { Text(text = "Enter quantity")}
         )
 
 
@@ -131,7 +132,7 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             {focusManager.moveFocus(FocusDirection.Down)
                 keyboardController?.hide()})
             , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
-
+            , label = { Text(text = "Enter paymentDone ")}
         )
 
 
@@ -141,7 +142,7 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             {focusManager.moveFocus(FocusDirection.Down)
                 keyboardController?.hide()})
             , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
-
+            , label = { Text(text = "Enter paymentdues ")}
         )
 
         TextField(value = stockInDate.value, onValueChange = {stockInDate.value = it},
@@ -150,7 +151,7 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             {focusManager.moveFocus(FocusDirection.Down)
                 keyboardController?.hide()})
             , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
-
+            , label = { Text(text = "Enter stockInDate ")}
         )
 
         TextField(value = stockOutDate.value, onValueChange = {stockOutDate.value = it},
@@ -159,7 +160,7 @@ fun AddFarmerScreen(viewmodel: LogInSignInViewmodel) {
             {focusManager.moveFocus(FocusDirection.Down)
                 keyboardController?.hide()})
             , modifier = Modifier.padding(10.dp,10.dp,0.dp,10.dp)
-
+            , label = { Text(text = "Enter stockOutDate")}
         )
 
         Button(onClick = {

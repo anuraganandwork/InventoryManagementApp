@@ -14,12 +14,24 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class LogInSignInViewmodel @Inject constructor(val dao:Farmer_Dao): ViewModel()  {
     val auth: FirebaseAuth = Firebase.auth
+
+
+   private var _listOfFarmers =MutableStateFlow<List<Farmer>>(emptyList())
+    val listOFFarmer = _listOfFarmers.asStateFlow()
+    init {
+viewModelScope.launch {
+        dao.getListOfFarmer().collect{
+            _listOfFarmers.value=it
+        }}
+    }
 
     fun LogInWithEmailAndPass(email: String, password: String,  context: Context ,call:()-> Unit){
         viewModelScope.launch {
